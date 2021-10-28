@@ -85,7 +85,8 @@ let ProductSchema = require('../Model/Products');
     for(var i=0;i<req.files.length;i++) {
         product.Details.push({
           //  "imgPath": "https://storage.googleapis.com/shopz-d_product_image/Images/" + d + i + req.files[i].originalname,
-            "imgPath": url + '/public/' + req.files[i].filename,
+            //"imgPath": url + '/public/' + req.files[i].filename,
+            "imgPath": url + '/testdata/' + req.files[i].filename,
             "color" : req.body.ColorOfImg[i],
             "small" : req.body.StockSmall[i],
             "medium" : req.body.StockMedium[i],
