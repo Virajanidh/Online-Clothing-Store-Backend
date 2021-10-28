@@ -30,8 +30,8 @@ var upload = multer({
     }
 });
 
-//save images in google server storage
-/*const {Storage} = require('@google-cloud/storage');
+//save images in google server storage===================================
+const {Storage} = require('@google-cloud/storage');
 
 const storage = new Storage({projectId: 'the-hanger-af', keyFilename: path.join(__dirname, '../the-hanger-af-1aba20ec4e38.json')});
 
@@ -60,7 +60,7 @@ async function uploadFile(file ,nameid, i) {
 
     blobStream.end(file.buffer);
 
-} */
+} //uotothis 
 
 
 let ProductSchema = require('../Model/Products');
@@ -84,9 +84,9 @@ let ProductSchema = require('../Model/Products');
 
     for(var i=0;i<req.files.length;i++) {
         product.Details.push({
-          //  "imgPath": "https://storage.googleapis.com/shopz-d_product_image/Images/" + d + i + req.files[i].originalname,
+           "imgPath": "https://storage.googleapis.com/shopz-d_product_image/Images/" + d + i + req.files[i].originalname,
             //"imgPath": url + '/public/' + req.files[i].filename,
-            "imgPath": url + '/testdata/' + req.files[i].filename,
+           //"imgPath": url + '/testdata/' + req.files[i].filename,
             "color" : req.body.ColorOfImg[i],
             "small" : req.body.StockSmall[i],
             "medium" : req.body.StockMedium[i],
@@ -94,7 +94,7 @@ let ProductSchema = require('../Model/Products');
             "xl" : req.body.StockXL[i],
 
         })
-        //uploadFile(req.files[i],d,i)
+        uploadFile(req.files[i],d,i)
     }
 
     var datetime = new Date();
