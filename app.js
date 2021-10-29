@@ -47,7 +47,8 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors());
 app.options('*', cors());
-app.use('/public', express.static('public'));
+//app.use('/public', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/products', productRoute);
 app.use('/users', userRoute);
 app.use('/wishlist', wishlistRoute);
